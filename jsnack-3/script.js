@@ -10,21 +10,16 @@ const nameList = [
   "lello"
 ];
 
-
 const inputNameElement = document.getElementById("inputName");
 
-let userName = inputNameElement.value;
-console.log(userName);
-
 const helpLinkElement = document.getElementById("help");
-
 
 helpLinkElement.addEventListener("click", function (e) {
 
   e.preventDefault();
 
   helpLinkElement.insertAdjacentHTML("afterend",
-    `<div class="rounded mc_help">
+    `<div class="rounded" id="help_banner">
       Prova questo nome: ${nameList[Math.floor(Math.random() * (nameList.length - 1))]}
     </div>`
   );
@@ -40,7 +35,9 @@ const formElement = document.querySelector(".mc_name_form");
 formElement.addEventListener("submit", function (e) {
 
   e.preventDefault();
+
   userName = inputNameElement.value;
+
   console.log(userName);
 
 
@@ -54,19 +51,19 @@ formElement.addEventListener("submit", function (e) {
   };
 
 
-  const inputNameElement = document.querySelector(".mc_name_output");
+  const outputElement = document.querySelector(".output");
 
   if (hasAccess === true) {
 
-    inputNameElement.innerHTML = `<div class="mc_access_granted">Ciao ${userName.split("@")[0]}, benvenuto</div>`;
+    outputElement.innerHTML = `<div>Ciao ${userName.split("@")[0]}, benvenuto</div>`;
 
   } else {
 
-    inputNameElement.innerHTML = `<div class="mc_access_denied">Spiacente ${userName.split("@")[0]}, il tuo nome non è presente in archivio!</div>`;
+    outputElement.innerHTML = `<div>Spiacente ${userName.split("@")[0]}, il tuo nome non è presente in archivio!</div>`;
 
   };
 
-  const helpBannerElement = document.querySelector(".mc_help");
+  const helpBannerElement = document.getElementById("help_banner");
   helpBannerElement.remove();
 
   hasAccess = false;
