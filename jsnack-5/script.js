@@ -2,7 +2,7 @@
 
 const numbers = [];
 
-for (let i = 1; i <= 6; i++) {
+/* for (let i = 1; i <= 6; i++) {
 
   number = Number(prompt("Inserire un numero"));
 
@@ -13,5 +13,23 @@ for (let i = 1; i <= 6; i++) {
   }
 
 };
+
+console.log(numbers); */
+
+let i = 1
+
+while (i <= 6) {
+
+  number = Number(prompt("Inserire un numero"));
+
+  if (number % 2 !== 0) {
+
+    numbers.push(number);
+
+  }
+
+  i++
+
+}
 
 console.log(numbers);
