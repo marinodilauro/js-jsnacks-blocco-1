@@ -4,7 +4,7 @@ let sum = 0;
 
 let numbers = [];
 
-/*3
+/*
 for (let i = 1; i <= 10; i++) {
 
   number = Number(prompt("Inserire un numero"));
