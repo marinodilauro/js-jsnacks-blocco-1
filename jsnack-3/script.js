@@ -1,73 +1,39 @@
-// In un array sono contenuti i nomi degli invitati alla festa del grande Gatsby, chiedi all’utente il suo nome e comunicagli se può partecipare o no alla festa
+// Il software deve chiedere per 10 volte all’utente di inserire un numero. Il programma stampa la somma di tutti i numeri inseriti.
 
-const nameList = [
-  "marino",
-  "jimmy",
-  "andrea",
-  "simona",
-  "chiara",
-  "piera",
-  "lello"
-];
+let sum = 0;
 
-const inputNameElement = document.getElementById("inputName");
+let numbers = [];
 
-const helpLinkElement = document.getElementById("help");
+/*3
+for (let i = 1; i <= 10; i++) {
 
-helpLinkElement.addEventListener("click", function (e) {
+  number = Number(prompt("Inserire un numero"));
+  numbers.push(number);
 
-  e.preventDefault();
+  const element = numbers[i];
 
-  helpLinkElement.insertAdjacentHTML("afterend",
-    `<div class="rounded" id="help_banner">
-      Prova questo nome: ${nameList[Math.floor(Math.random() * (nameList.length - 1))]}
-    </div>`
-  );
+  sum += element;
 
-});
+}; 
+
+console.log(sum);
+
+*/
 
 
-let hasAccess = false;
+let i = 1
 
-const formElement = document.querySelector(".mc_name_form");
+while (i <= 10) {
 
+  number = Number(prompt("Inserire un numero"));
+  numbers.push(number);
 
-formElement.addEventListener("submit", function (e) {
+  const element = numbers[i];
 
-  e.preventDefault();
+  sum += element;
 
-  userName = inputNameElement.value;
+  i++
 
-  console.log(userName);
+}
 
-
-  for (let i = 0; i < nameList.length; i++) {
-    const name = nameList[i];
-
-    if (userName === name) {
-      hasAccess = true;
-    }
-
-  };
-
-
-  const outputElement = document.querySelector(".output");
-
-  if (hasAccess === true) {
-
-    outputElement.innerHTML = `<div>Ciao ${userName.split("@")[0]}, benvenuto</div>`;
-
-  } else {
-
-    outputElement.innerHTML = `<div>Spiacente ${userName.split("@")[0]}, il tuo nome non è presente in archivio!</div>`;
-
-  };
-
-  const helpBannerElement = document.getElementById("help_banner");
-  helpBannerElement.remove();
-
-  hasAccess = false;
-
-});
-
-
+console.log(sum);
